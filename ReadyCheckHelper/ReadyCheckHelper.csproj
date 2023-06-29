@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Platforms>AnyCPU</Platforms>
+		<Version>1.0.4.0</Version>
+		<Authors>PunishedPineapple</Authors>
+		<Product />
+		<Copyright>Copyright © PunishedPineapple 2021-2022</Copyright>
+		<PackageProjectUrl>https://github.com/PunishedPineapple/ReadyCheckHelper</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/PunishedPineapple/ReadyCheckHelper</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<NoWarn>1701;1702;</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DalamudPackager" Version="2.1.10" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<DalamudLibPath>E:\GitHubDesktop\Dalamud 7.3.5.0\bin\Release\</DalamudLibPath>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="Dalamud">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)Newtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="ImGui.NET">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
+		</Reference>
+		<Reference Include="ImGuiScene">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)ImGuiScene.dll</HintPath>
+		</Reference>
+		<Reference Include="Lumina">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)Lumina.dll</HintPath>
+		</Reference>
+		<Reference Include="Lumina.Excel">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath>
+		</Reference>
+		<Reference Include="FFXIVClientStructs">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
+		</Reference>
+		<Reference Include="CheapLoc">
+			<Private>false</Private>
+			<HintPath>$(DalamudLibPath)CheapLoc.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\**" DestinationFolder="Resources\$(RecursiveDir)" CopyToOutputDirectory="Always" />
+	</ItemGroup>
+</Project>
