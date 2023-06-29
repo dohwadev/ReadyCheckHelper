@@ -283,7 +283,6 @@ namespace ReadyCheckHelper
 							ImGui.Text( "General Info:" );
 
 							ImGui.Text( $"Number of Party Members: {FFXIVClientStructs.FFXIV.Client.Game.Group.GroupManager.Instance()->MemberCount}" );
-							ImGui.Text( $"Is Alliance: {FFXIVClientStructs.FFXIV.Client.Game.Group.GroupManager.Instance()->IsAlliance}" );
 							ImGui.Text( $"Is Cross-World: {FFXIVClientStructs.FFXIV.Client.UI.Info.InfoProxyCrossRealm.Instance()->IsCrossRealm}" );
 							byte crossWorldGroupCount = FFXIVClientStructs.FFXIV.Client.UI.Info.InfoProxyCrossRealm.Instance()->GroupCount;
 							ImGui.Text( $"Number of Cross-World Groups: {crossWorldGroupCount}" );
@@ -842,7 +841,7 @@ namespace ReadyCheckHelper
 						var partList = new List<AtkUldPart>();
 						partList.Add( new() { U = 0, V = 0, Width = 48, Height = 48 } );
 						partList.Add( new() { U = 48, V = 48, Width = 48, Height = 48 } );
-						var pNewNode = AtkNodeHelpers.CreateOrphanImageNode( nodeID, partList );
+						var pNewNode = AtkNodeHelpers.CreateOrphanImageNode( nodeID, partList, GameAddonEnum.PartyList );
 						if( pNewNode != null ) AtkNodeHelpers.AttachImageNode( pAddon, pNewNode );
 					}
 				}
@@ -954,6 +953,6 @@ namespace ReadyCheckHelper
 			set { mDebugProcessedWindowVisible = value; }
 		}
 
-		private static readonly uint mReadyCheckPartyListNodeIDBase = 0x6C78B200;    //YOLO hoping for no collisions.
+		private static readonly uint mReadyCheckPartyListNodeIDBase = 0x6C78B200;	//YOLO hoping for no collisions.  Can use the same ID base for each addon.
 	}
 }
